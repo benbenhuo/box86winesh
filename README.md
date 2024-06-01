@@ -10,7 +10,6 @@ linux系统版本需≥ubuntu20.04
 
 安装命令wget https://github.moeyy.xyz/https://github.com/benbenhuo/boxwinesh/blob/main/winesh.sh && bash winesh.sh
 
-![]
-(https://github.com/benbenhuo/boxwinesh/blob/main/1.png)
+![](https://github.com/benbenhuo/boxwinesh/blob/main/1.png)
 
 github链接:https://github.com/benbenhuo/boxwinesh/
