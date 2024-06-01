@@ -177,6 +177,8 @@ case $choice in
             rm wine*x86.tar.xz
             rm -r wine
             rm -r .wine
+            sudo rm /usr/local/bin/wine
+            sudo rm /etc/profile.d/wine.sh
             echo -e "${BLUE}wine卸载完成${NC}"
             ;;
             
@@ -329,6 +331,8 @@ case $choice in
             rm wine*amd64.tar.xz
             rm -r wine64
             rm -r .wine64
+            sudo rm /usr/local/bin/wine64
+            sudo rm /etc/profile.d/wine64.sh
             echo -e "${BLUE}wine64卸载完成${NC}"
             ;;
             
