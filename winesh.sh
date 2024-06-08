@@ -65,6 +65,7 @@ case $choice in
             2)
             #卸载box86
             sudo apt purge box86-generic-arm -y
+            sudo apt purge libc6:armhf -y
             sudo rm -f /etc/apt/sources.list.d/box86.list /etc/apt/trusted.gpg.d/box86-debs-archive-keyring.gpg
             echo -e "${BLUE}box86已卸载完成${NC}"
             ;;
