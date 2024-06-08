@@ -54,8 +54,10 @@ case $choice in
             karch=$(uname -m)
             if [ "$karch" = "aarch64" ] || [ "$karch" = "aarch64-linux-gnu" ] || [ "$karch" = "arm64" ] || [ "$karch" = "aarch64_be" ]; then  
             sudo dpkg --add-architecture armhf 
-            fi
+            sudo apt update && sudo apt install libc6:armhf box86-generic-arm -y
+            else
             sudo apt update && sudo apt install box86-generic-arm -y
+            fi
             echo -e "${BLUE}box86安装和更新已完成${NC}"
             fi
             ;;
