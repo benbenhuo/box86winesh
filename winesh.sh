@@ -159,7 +159,8 @@ case $choice in
             echo -e "${BLUE}正在安装wine-gecko和wine-momo${NC}"
            wget https://mirrors.ustc.edu.cn/wine/wine/wine-gecko/2.47.4/wine-gecko-2.47.4-x86.msi
            wget https://mirrors.ustc.edu.cn/wine/wine/wine-mono/9.1.0/wine-mono-9.1.0-x86.msi
-           wine msiexec /i wine-gecko-2.47.4-x86.msi wine-mono-9.1.0-x86.msi
+           wine msiexec /i wine-gecko-2.47.4-x86.msi
+           wine msiexec /i wine-mono-9.1.0-x86.msi
            rm wine-gecko-2.47.4-x86.msi
            rm wine-mono-9.1.0-x86.msi
            echo -e "${BLUE}wine已安装完成${NC}"
@@ -230,7 +231,7 @@ case $choice in
             sudo wget https://cdn05042023.gitlink.org.cn/shenmo7192/box64-debs/raw/branch/master/box64-CN.list -O /etc/apt/sources.list.d/box64.list
             wget -qO- https://cdn05042023.gitlink.org.cn/shenmo7192/box64-debs/raw/branch/master/KEY.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/box64-debs-archive-keyring.gpg 
              sudo apt update && sudo apt install box64 -y
-            echo -e "${BLUE}box86安装和更新已完成${NC}"
+            echo -e "${BLUE}box64安装和更新已完成${NC}"
             fi
             ;;
             
