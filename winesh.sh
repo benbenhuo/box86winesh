@@ -93,15 +93,15 @@ case $choice in
             read -p "请输入选项序号: " choice
             case $choice in
             1)
-            echo -e "${BLUE}默认安装wine版本为9.9${NC}"
+            echo -e "${BLUE}默认安装wine版本为9.10${NC}"
             echo -e "${BLUE}是否保持默认wine安装版本，y是/n否${NC}"
             read -p "(y/n): " gujian
             if [ "$gujian" = "y" ]; then
-           version='9.9'
+           version='9.10'
             echo -e "${BLUE}不修改wine默认安装版本${NC}"
             elif [ "$gujian" = "n" ]; then
             echo -e "${BLUE}请前往https://github.com/Kron4ek/Wine-Builds/releases查看可安装版本${NC}"
-            echo -e "${BLUE}只需输入版本号，例如输入9.9即设置为wine9.9版本${NC}"
+            echo -e "${BLUE}只需输入版本号，例如输入9.10即设置为wine9.10版本${NC}"
             read -p "请输入版本号: " version
             fi
             sudo apt update && sudo apt install tightvncserver -y
@@ -272,15 +272,15 @@ case $choice in
             read -p "请输入选项序号: " choice
             case $choice in
             1)
-            echo -e "${BLUE}默认安装wine64版本为9.9${NC}"
+            echo -e "${BLUE}默认安装wine64版本为9.10${NC}"
             echo -e "${BLUE}是否保持默认wine64安装版本，y是/n否${NC}"
             read -p "(y/n): " gujian
             if [ "$gujian" = "y" ]; then
-           version='9.9'
+           version='9.10'
             echo -e "${BLUE}不修改wine64默认安装版本${NC}"
             elif [ "$gujian" = "n" ]; then
             echo -e "${BLUE}请前往https://github.com/Kron4ek/Wine-Builds/releases查看可安装版本${NC}"
-            echo -e "${BLUE}只需输入版本号，例如输入9.9即设置为wine64的9.9版本${NC}"
+            echo -e "${BLUE}只需输入版本号，例如输入9.10即设置为wine64的9.10版本${NC}"
             read -p "请输入版本号: " version
             fi
             sudo apt update && sudo apt install tightvncserver -y
