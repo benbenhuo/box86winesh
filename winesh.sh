@@ -93,12 +93,12 @@ case $choice in
             read -p "请输入选项序号: " choice
             case $choice in
             1)
-            echo -e "${BLUE}默认安装wine版本为9.10${NC}"
-            echo -e "${BLUE}是否保持默认wine安装版本，y是/n否${NC}"
+            version=$(curl -L $RELEASE_PAGE | grep -oP 'Wine \K[^"]*</h2>' | cut -d "<" -f 1 | head -n 1)
+            echo -e "${BLUE}当前最新wine版本为${version}${NC}"
+            echo -e "${BLUE}是否安装最新版本。(y是/n否)${NC}"
             read -p "(y/n): " gujian
             if [ "$gujian" = "y" ]; then
-           version='9.10'
-            echo -e "${BLUE}不修改wine默认安装版本${NC}"
+          "${BLUE}正在安装wine${NC}"
             elif [ "$gujian" = "n" ]; then
             echo -e "${BLUE}请前往https://github.com/Kron4ek/Wine-Builds/releases查看可安装版本${NC}"
             echo -e "${BLUE}只需输入版本号，例如输入9.10即设置为wine9.10版本${NC}"
@@ -272,12 +272,12 @@ case $choice in
             read -p "请输入选项序号: " choice
             case $choice in
             1)
-            echo -e "${BLUE}默认安装wine64版本为9.10${NC}"
-            echo -e "${BLUE}是否保持默认wine64安装版本，y是/n否${NC}"
+            version=$(curl -L $RELEASE_PAGE | grep -oP 'Wine \K[^"]*</h2>' | cut -d "<" -f 1 | head -n 1)
+            echo -e "${BLUE}当前最新wine64版本为${version}${NC}"
+            echo -e "${BLUE}是否安装最新版本。(y是/n否)${NC}"
             read -p "(y/n): " gujian
             if [ "$gujian" = "y" ]; then
-           version='9.10'
-            echo -e "${BLUE}不修改wine64默认安装版本${NC}"
+            echo -e "${BLUE}正在安装wine64${NC}"
             elif [ "$gujian" = "n" ]; then
             echo -e "${BLUE}请前往https://github.com/Kron4ek/Wine-Builds/releases查看可安装版本${NC}"
             echo -e "${BLUE}只需输入版本号，例如输入9.10即设置为wine64的9.10版本${NC}"
@@ -357,11 +357,11 @@ case $choice in
     while true; do
       #vnc
     #检测vnc是否安装
-    vncserver :0 -geometry 1280x720
-    if [ $? -ne 0 ];then
-    echo -e "${RED}VNC未安装，请安装${NC}"
-    else
+    vnc=$(vncserver :0 -geometry 1280x720)
+    if [ "vnc" = "vncserver :0 -geometry 1280x720" ];then
     echo -e "${GREEN}VNC已安装${NC}"
+    else
+    echo -e "${RED}VNC未安装，请安装${NC}"
     fi
     echo -e "${GREEN}安装wine和wine64时都会自动安装VNC${NC}"
         #VNC菜单
