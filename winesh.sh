@@ -98,8 +98,8 @@ case $choice in
             read -p "请输入选项序号: " choice
             case $choice in
             1)
-            sudo apt update && sudo apt install curl -y
-            version=$(curl -L https://github.moeyy.xyz/https://github.com/Kron4ek/Wine-Builds/releases | grep -oP 'Wine \K[^"]*</h2>' | cut -d "<" -f 1 | head -n 1)
+            sudo apt update && apt install curl -y
+            version=$(curl -L https://kkgithub.com/Kron4ek/Wine-Builds/releases | grep -oP 'Wine \K[^"]*</h2>' | cut -d "<" -f 1 | head -n 1)
             echo -e "${BLUE}当前最新wine版本为${version}${NC}"
             echo -e "${BLUE}是否安装最新版本。(y是/n否)${NC}"
             read -p "(y/n): " gujian
@@ -278,7 +278,8 @@ case $choice in
             read -p "请输入选项序号: " choice
             case $choice in
             1)
-            version=$(curl -L $RELEASE_PAGE | grep -oP 'Wine \K[^"]*</h2>' | cut -d "<" -f 1 | head -n 1)
+            sudo apt update && apt install curl -y
+            version=$(curl -L https://kkgithub.com/Kron4ek/Wine-Builds/releases | grep -oP 'Wine \K[^"]*</h2>' | cut -d "<" -f 1 | head -n 1)
             echo -e "${BLUE}当前最新wine64版本为${version}${NC}"
             echo -e "${BLUE}是否安装最新版本。(y是/n否)${NC}"
             read -p "(y/n): " gujian
