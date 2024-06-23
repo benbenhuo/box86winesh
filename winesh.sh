@@ -58,6 +58,7 @@ case $choice in
             else
             sudo apt update && sudo apt install box86-generic-arm -y
             fi
+            sudo apt purge gpg -y
             echo -e "${BLUE}box86安装和更新已完成${NC}"
             fi
             ;;
@@ -65,7 +66,11 @@ case $choice in
             2)
             #卸载box86
             sudo apt purge box86-generic-arm -y
+            karch=$(uname -m)
+            if [ "$karch" = "aarch64" ] || [ "$karch" = "aarch64-linux-gnu" ] || [ "$karch" = "arm64" ] || [ "$karch" = "aarch64_be" ]; then  
             sudo apt purge libc6:armhf -y
+            fi
+            sudo apt autoremove
             sudo rm -f /etc/apt/sources.list.d/box86.list /etc/apt/trusted.gpg.d/box86-debs-archive-keyring.gpg
             echo -e "${BLUE}box86已卸载完成${NC}"
             ;;
@@ -93,7 +98,8 @@ case $choice in
             read -p "请输入选项序号: " choice
             case $choice in
             1)
-            version=$(curl -L $RELEASE_PAGE | grep -oP 'Wine \K[^"]*</h2>' | cut -d "<" -f 1 | head -n 1)
+            sudo apt update && sudo apt install curl -y
+            version=$(curl -L https://github.moeyy.xyz/https://github.com/Kron4ek/Wine-Builds/releases | grep -oP 'Wine \K[^"]*</h2>' | cut -d "<" -f 1 | head -n 1)
             echo -e "${BLUE}当前最新wine版本为${version}${NC}"
             echo -e "${BLUE}是否安装最新版本。(y是/n否)${NC}"
             read -p "(y/n): " gujian
