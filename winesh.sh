@@ -104,7 +104,7 @@ case $choice in
             echo -e "${BLUE}是否安装最新版本。(y是/n否)${NC}"
             read -p "(y/n): " gujian
             if [ "$gujian" = "y" ]; then
-          "${BLUE}正在安装wine${NC}"
+            echo -e "${BLUE}正在安装wine${NC}"
             elif [ "$gujian" = "n" ]; then
             echo -e "${BLUE}请前往https://github.com/Kron4ek/Wine-Builds/releases查看可安装版本${NC}"
             echo -e "${BLUE}只需输入版本号，例如输入9.10即设置为wine9.10版本${NC}"
@@ -281,7 +281,7 @@ case $choice in
             sudo apt update && apt install curl -y
             version=$(curl -L https://kkgithub.com/Kron4ek/Wine-Builds/releases | grep -oP 'Wine \K[^"]*</h2>' | cut -d "<" -f 1 | head -n 1)
             echo -e "${BLUE}当前最新wine64版本为${version}${NC}"
-            echo -e "${BLUE}是否安装最新版本。(y是/n否)${NC}"
+            echo -e "${BLUE}是否安装最新版本(y是/n否)${NC}"
             read -p "(y/n): " gujian
             if [ "$gujian" = "y" ]; then
             echo -e "${BLUE}正在安装wine64${NC}"
