@@ -45,12 +45,12 @@ case $choice in
             #安装box86
             sudo apt install box86-generic-arm
             if [ $? -ne 0 ];then
-            sudo apt update && sudo apt install gpg -y
+            sudo apt update && sudo apt install gpg wget -y
             sudo rm /etc/apt/sources.list.d/box86.list
             sudo touch /etc/apt/sources.list.d/box86.list
             sudo chmod 777 /etc/apt/sources.list.d/box86.list
-            sudo echo "deb https://github.moeyy.xyz/https://raw.githubusercontent.com/ryanfortner/box86-debs/master/debian ./" > /etc/apt/sources.list.d/box86.list
-            wget -qO- https://mirror.ghproxy.com/https://raw.githubusercontent.com/ryanfortner/box86-debs/master/KEY.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/box86-debs-archive-keyring.gpg 
+            sudo echo "deb https://cf.ghproxy.cc/https://raw.githubusercontent.com/ryanfortner/box86-debs/master/debian ./" > /etc/apt/sources.list.d/box86.list
+            wget -qO- https://cf.ghproxy.cc/https://raw.githubusercontent.com/ryanfortner/box86-debs/master/KEY.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/box86-debs-archive-keyring.gpg 
             karch=$(uname -m)
             if [ "$karch" = "aarch64" ] || [ "$karch" = "aarch64-linux-gnu" ] || [ "$karch" = "arm64" ] || [ "$karch" = "aarch64_be" ]; then  
             sudo dpkg --add-architecture armhf 
@@ -111,7 +111,7 @@ case $choice in
             read -p "请输入版本号: " version
             fi
             sudo apt update && sudo apt install tightvncserver -y
-            wget https://github.moeyy.xyz/https://github.com/Kron4ek/Wine-Builds/releases/download/${version}/wine-${version}-x86.tar.xz
+            wget https://cf.ghproxy.cc/https://github.com/Kron4ek/Wine-Builds/releases/download/${version}/wine-${version}-x86.tar.xz
             tar -Jxvf wine-${version}-x86.tar.xz
             rm wine-${version}-x86.tar.xz
             mv -f wine-${version}-x86 wine
@@ -150,9 +150,9 @@ case $choice in
             #安装中文字体
             echo -e "${BLUE}正在安装中文字体${NC}"
             WINEPREFIX=$(pwd)/.wine box86 wine wineboot
-            wget -O ${lujing}/.wine/drive_c/windows/Fonts/simsun.ttc https://github.moeyy.xyz/https://raw.githubusercontent.com/benbenhuo/boxwinesh/main/simsun.ttc
+            wget -O ${lujing}/.wine/drive_c/windows/Fonts/simsun.ttc https://cf.ghproxy.cc/https://raw.githubusercontent.com/benbenhuo/boxwinesh/main/simsun.ttc
             sudo chmod 755 ${lujing}/.wine/drive_c/windows/Fonts/simsun.ttc
-            wget https://github.moeyy.xyz/https://raw.githubusercontent.com/benbenhuo/boxwinesh/main/zh.reg
+            wget https://cf.ghproxy.cc/https://raw.githubusercontent.com/benbenhuo/boxwinesh/main/zh.reg
             WINEPREFIX=$(pwd)/.wine box86 wine regedit zh.reg
             rm zh.reg
             sudo rm /usr/local/bin/wine
@@ -233,7 +233,7 @@ case $choice in
             #安装box64
             sudo apt install box64
             if [ $? -ne 0 ];then
-            sudo apt update && sudo apt install gpg -y
+            sudo apt update && sudo apt install gpg wget -y
             sudo wget https://cdn05042023.gitlink.org.cn/shenmo7192/box64-debs/raw/branch/master/box64-CN.list -O /etc/apt/sources.list.d/box64.list
             wget -qO- https://cdn05042023.gitlink.org.cn/shenmo7192/box64-debs/raw/branch/master/KEY.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/box64-debs-archive-keyring.gpg 
              sudo apt update && sudo apt install box64 -y
@@ -291,7 +291,7 @@ case $choice in
             read -p "请输入版本号: " version
             fi
             sudo apt update && sudo apt install tightvncserver -y
-            wget https://github.moeyy.xyz/https://github.com/Kron4ek/Wine-Builds/releases/download/${version}/wine-${version}-amd64.tar.xz
+            wget https://cf.ghproxy.cc/https://github.com/Kron4ek/Wine-Builds/releases/download/${version}/wine-${version}-amd64.tar.xz
             tar -Jxvf wine-${version}-amd64.tar.xz
             rm wine-${version}-amd64.tar.xz
             mv -f wine-${version}-amd64 wine64
@@ -319,9 +319,9 @@ case $choice in
             #安装中文字体
             echo -e "${BLUE}正在安装中文字体${NC}"
             WINEPREFIX=$(pwd)/.wine64 box64 wine64 wineboot
-            wget -O ${lujing}/.wine64/drive_c/windows/Fonts/simsun.ttc https://github.moeyy.xyz/https://raw.githubusercontent.com/benbenhuo/boxwinesh/main/simsun.ttc
+            wget -O ${lujing}/.wine64/drive_c/windows/Fonts/simsun.ttc https://cf.ghproxy.cc/https://raw.githubusercontent.com/benbenhuo/boxwinesh/main/simsun.ttc
             sudo chmod 755 ${lujing}/.wine64/drive_c/windows/Fonts/simsun.ttc
-            wget https://github.moeyy.xyz/https://raw.githubusercontent.com/benbenhuo/boxwinesh/main/zh.reg -O zh.reg
+            wget https://cf.ghproxy.cc/https://raw.githubusercontent.com/benbenhuo/boxwinesh/main/zh.reg -O zh.reg
             WINEPREFIX=$(pwd)/.wine64 box64 wine64 regedit zh.reg
             rm zh.reg
             sudo rm /usr/local/bin/wine64
@@ -425,7 +425,7 @@ case $choice in
             
             1)
             sudo apt update $$ apt install cabextract unzip -y
-            sudo wget -O /usr/local/bin/winetricks1 http://github.moeyy.xyz/https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks 
+            sudo wget -O /usr/local/bin/winetricks1 http://cf.ghproxy.cc/https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks 
             sudo touch /usr/local/bin/winetricks
             sudo chmod 777 /usr/local/bin/winetricks1 /usr/local/bin/winetricks
             sudo echo "#!/bin/bash" > /usr/local/bin/winetricks
@@ -447,12 +447,12 @@ case $choice in
        echo -e "${RED}当前架构不为arm64无法安装winetricks64${NC}"
         break
         fi
-            sudo wget -O /usr/local/bin/winetricks2 http://github.moeyy.xyz/https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks 
+            sudo wget -O /usr/local/bin/winetricks2 http://cf.ghproxy.cc/https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks 
             sudo touch /usr/local/bin/winetricks64
             sudo chmod 777 /usr/local/bin/winetricks2 /usr/local/bin/winetricks64
             sudo echo "#!/bin/bash" > /usr/local/bin/winetricks64
             sudo echo "export BOX86_NOBANNER=1 WINE=wine WINEPREFIX=$(pwd)/.wine WINESERVER=$(pwd)/wine/bin/wineserver" >> /usr/local/bin/winetricks64
-            sudo echo 'winetricks1 "$@"' >> /usr/local/bin/winetricks64
+            sudo echo 'winetricks2 "$@"' >> /usr/local/bin/winetricks64
             echo -e "${BLUE}1. winetricks64已安装完成${NC}"
             ;;
             
